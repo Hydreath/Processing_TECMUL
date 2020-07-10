@@ -1,0 +1,51 @@
+public class BackgroundManager{
+  private float squareSize = 20;
+  private ArrayList<GridLine> grid;
+  private GridLine lastSpawn;
+  private float blockSize = 20;
+  private Player player;
+  
+  public BackgroundManager(Player player){
+    grid = new ArrayList<GridLine>();
+    this.player = player;
+  }
+  
+  public void update(){
+    if(lastSpawn == null || lastSpawn.getY() > 0)
+      spawn();
+      
+    for(int i = 0; i < grid.size(); i++) {
+      GridLine line = grid.get(i);
+      line.updatePosition(player.getSpeed);
+      /*
+      if(checkBounds(line)){
+        despawn(line); 
+      }
+      */
+    }
+    
+    for(int i = 0; i < grid.size(); i++) {
+      GridLine line = grid.get(i);
+      line.display();
+    }
+  }
+  
+  private void spawn(){
+    float y = 0;
+    if(lastSpawn == null)
+      y = -blockSize;
+    else
+      y = lastSpawn.getY() - blockSize;
+    GridLine line = new GridLine(blockSize, y);
+    grid.add(line);
+    lastSpawn = line;
+  }
+  
+  private boolean checkBounds(GridLine line){
+    return line.getY() > height; 
+  }
+  
+  private void despawn(GridLine line){
+    grid.remove(line);
+  }
+}
