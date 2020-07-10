@@ -9,5 +9,5 @@ The game is controlled by camera motion and functions similarly to the Playstati
 
 ### Assets
 Music: https://newretrowave.bandcamp.com/track/tears-in-the-rain <br />
-Car Engine: Lost the source, but it was obtain from https://freesound.org
+Car Engine: Lost the source, but it was obtain from https://freesound.org <br /> <br />
 All assets visual assets were drawn or made by me.
